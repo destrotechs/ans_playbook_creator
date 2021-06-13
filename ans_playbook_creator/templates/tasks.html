@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{%block content%}
+<div class="container-fluid d-flex justify-content-center">
+    <div class="card mt-5" style="width:55em;">
+        <div class="card-header"><h4>Add tasks to your playbook <span style="float:right;"><input type="button" id="addtask" class="btn btn-primary btn-sm" value="add"></span></h4></div>
+        <div class="card-body">
+            <form action="/tasks" method="POST">
+                <div class="myform">
+                <div class="row g-2" id="task">
+                    <div class="col-auto">
+                        <input type="text" name="task_name[]" class="form-control" placeholder="task name">
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="task_type[]" class="form-control" placeholder="e.g apt or yum">
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="module_name[]" class="form-control" placeholder="e.g apache2">
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="status[]" class="form-control" placeholder="status">
+                    </div>
+                </div>
+                <br>
+                </div>
+                
+                <button class="btn btn-success btn-md" type="submit">Save task(s)</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock content%}
+{%block scripts%}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#addtask").click(function(){
+            var task = $("#task").clone();
+            $(".myform").append(task);
+            $(".myform").append("<br>");
+           
+        })
+    })
+
+</script>
+{%endblock scripts%}

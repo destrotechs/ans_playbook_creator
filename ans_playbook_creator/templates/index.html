@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{%block content%}
+<div class="container-fluid d-flex justify-content-center">
+    <div class="card mt-5" style="width:30em">
+        <div class="card-header"><h4>Create your ansible playbook</h4></div>
+        <div class="card-body">
+            <form method="POST" action="/newproject">
+                <div class="form-row" style="">
+                    <label>Project name</label>
+                    <input type="text" class="form-control" name="project_name" placeholder="e.g web server">                       
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="col">
+                        <button class="btn btn-success" type="submit">Create</button>
+                    </div>
+                </div>
+                <div class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock content%}
+{%block scripts%}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".btn-success").click(function(){
+            $(this).hide();
+            $(".spinner-border").show();
+        })
+    })
+
+</script>
+{%endblock scripts%}
