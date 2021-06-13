@@ -18,3 +18,10 @@ create your project,add tasks to playbook and download the project
 
 #limitation
 upgrades will be made soon to add hosts{clients} configuration files
+
+
+
+
+#NOTE:
+
+    This is for basic playbooks.
